@@ -1,0 +1,163 @@
+[
+  {
+    "product_id": 1,
+    "product_title": "iPhone 14 Pro",
+    "product_image": "https://i.ibb.co/b9yFR5r/i-Phone-14-Pro-Black-Overlap-Trans-cropped.webp",
+    "category": "Phone",
+    "price": 999,
+    "description": "Apple flagship smartphone with advanced camera system and A16 chip.",
+    "Specification": [
+      "6.1-inch display",
+      "A16 Bionic",
+      "128GB storage",
+      "48MP camera"
+    ],
+    "availability": true,
+    "rating": 4.8,
+    "quantity": 10
+  },
+  {
+    "product_id": 2,
+    "product_title": "Samsung Galaxy S23",
+    "product_image": "https://i.ibb.co/ZppN3tXS/s-l400.webp ",
+    "category": "Phone",
+    "price": 899,
+    "description": "Powerful Android phone with Snapdragon processor.",
+    "Specification": ["6.1-inch AMOLED", "Snapdragon 8 Gen 2", "128GB storage"],
+    "availability": true,
+    "rating": 4.7,
+    "quantity": 7
+  },
+  {
+    "product_id": 3,
+    "product_title": "Google Pixel 8",
+    "product_image": "https://i.ibb.co/hxdc7Gm7/61-O4y-Gzkk-TL.jpg",
+    "category": "Phone",
+    "price": 799,
+    "description": "Google's AI-powered smartphone with clean Android experience.",
+    "Specification": ["Tensor G3", "50MP camera", "128GB storage"],
+    "availability": true,
+    "rating": 4.6,
+    "quantity": 5
+  },
+  {
+    "product_id": 4,
+    "product_title": "MacBook Air M2",
+    "product_image": "https://i.ibb.co/2pkVCjF/360-F-550736153-6t-GMMpd-Pbxkw4pu-C2icah4-Rj-XRVVh-RDp.jpg",
+    "category": "Laptop",
+    "price": 1199,
+    "description": "Lightweight laptop with Apple M2 chip.",
+    "Specification": ["13.6-inch Retina", "M2 chip", "8GB RAM"],
+    "availability": true,
+    "rating": 4.9,
+    "quantity": 6
+  },
+  {
+    "product_id": 5,
+    "product_title": "Dell XPS 13",
+    "product_image": "https://i.ibb.co/sdRWNrN4/xps13plus.jpg",
+    "category": "Laptop",
+    "price": 1099,
+    "description": "Premium ultrabook with sleek design.",
+    "Specification": ["Intel i7", "16GB RAM", "512GB SSD"],
+    "availability": true,
+    "rating": 4.7,
+    "quantity": 4
+  },
+  {
+    "product_id": 6,
+    "product_title": "HP Spectre x360",
+    "product_image": "https://i.ibb.co/9kFjxZRL/61-F3207-PHPL.jpg",
+    "category": "Laptop",
+    "price": 1250,
+    "description": "Convertible laptop with touchscreen.",
+    "Specification": ["Intel i7", "16GB RAM", "1TB SSD"],
+    "availability": false,
+    "rating": 4.6,
+    "quantity": 3
+  },
+  {
+    "product_id": 7,
+    "product_title": "AirPods Pro 2",
+    "product_image": "https://i.ibb.co/ksYfnQpR/cupertino-california-new-apple-airpods-pro-are-displayed-during-an-apple-special-event-at.webp",
+    "category": "Earbuds",
+    "price": 249,
+    "description": "Noise-cancelling wireless earbuds from Apple.",
+    "Specification": ["ANC", "Spatial Audio", "MagSafe case"],
+    "availability": true,
+    "rating": 4.8,
+    "quantity": 9
+  },
+  {
+    "product_id": 8,
+    "product_title": "Sony WF-1000XM5",
+    "product_image": "https://i.ibb.co/gFw6MS72/3f6b3ae4-001f-40cf-b8bf-8245c24298bc.png",
+    "category": "Earbuds",
+    "price": 299,
+    "description": "High-end earbuds with superior sound.",
+    "Specification": ["ANC", "Hi-Res Audio", "Bluetooth 5.3"],
+    "availability": true,
+    "rating": 4.7,
+    "quantity": 6
+  },
+  {
+    "product_id": 9,
+    "product_title": "iPad Air 5",
+    "product_image": "https://i.ibb.co/ZpjfK2rc/s-l400.webp",
+    "category": "Tablet",
+    "price": 599,
+    "description": "Powerful tablet with M1 chip.",
+    "Specification": ["10.9-inch display", "M1 chip", "64GB storage"],
+    "availability": true,
+    "rating": 4.8,
+    "quantity": 8
+  },
+  {
+    "product_id": 10,
+    "product_title": "Samsung Galaxy Tab S8",
+    "product_image": "https://i.ibb.co/XxhKHc7p/s-l960.webp",
+    "category": "Tablet",
+    "price": 699,
+    "description": "Premium Android tablet with S Pen.",
+    "Specification": ["11-inch display", "Snapdragon 8 Gen 1"],
+    "availability": true,
+    "rating": 4.6,
+    "quantity": 5
+  },
+  {
+    "product_id": 13,
+    "product_title": "Logitech MX Master 3S",
+    "product_image": "https://i.ibb.co/7xYyGq4m/logitech-mx-master-3s.jpg",
+    "category": "Accessories",
+    "price": 99,
+    "description": "Ergonomic wireless mouse for productivity.",
+    "Specification": ["8000 DPI", "Bluetooth", "Rechargeable"],
+    "availability": true,
+    "rating": 4.9,
+    "quantity": 12
+  },
+  {
+    "product_id": 14,
+    "product_title": "Razer BlackWidow V4",
+    "product_image": "https://i.ibb.co/4gZy3M2B/s-l225.jpg",
+    "category": "Accessories",
+    "price": 169,
+    "description": "Mechanical gaming keyboard with RGB lighting.",
+    "Specification": ["Mechanical switches", "RGB", "USB-C"],
+    "availability": true,
+    "rating": 4.7,
+    "quantity": 6
+  },
+  {
+    "product_id": 15,
+    "product_title": "Anker PowerCore 20000",
+    "product_image": "https://i.ibb.co/CC3GDDS/cc7d1771-7e1a-47e2-bd74-8583d46a1f20.jpg",
+    "category": "Accessories",
+    "price": 59,
+    "description": "High-capacity portable power bank.",
+    "Specification": ["20000mAh", "Fast charging", "Dual USB"],
+    "availability": true,
+    "rating": 4.6,
+    "quantity": 15
+  }
+]
