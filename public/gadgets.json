@@ -3,7 +3,7 @@
     "product_id": 1,
     "product_title": "iPhone 14 Pro",
     "product_image": "https://i.ibb.co/b9yFR5r/i-Phone-14-Pro-Black-Overlap-Trans-cropped.webp",
-    "category": "Phone",
+    "category": "IPhone",
     "price": 999,
     "description": "Apple flagship smartphone with advanced camera system and A16 chip.",
     "Specification": [
@@ -125,7 +125,7 @@
     "quantity": 5
   },
   {
-    "product_id": 13,
+    "product_id": 11,
     "product_title": "Logitech MX Master 3S",
     "product_image": "https://i.ibb.co/7xYyGq4m/logitech-mx-master-3s.jpg",
     "category": "Accessories",
@@ -137,7 +137,7 @@
     "quantity": 12
   },
   {
-    "product_id": 14,
+    "product_id": 12,
     "product_title": "Razer BlackWidow V4",
     "product_image": "https://i.ibb.co/4gZy3M2B/s-l225.jpg",
     "category": "Accessories",
@@ -149,7 +149,7 @@
     "quantity": 6
   },
   {
-    "product_id": 15,
+    "product_id": 13,
     "product_title": "Anker PowerCore 20000",
     "product_image": "https://i.ibb.co/CC3GDDS/cc7d1771-7e1a-47e2-bd74-8583d46a1f20.jpg",
     "category": "Accessories",
