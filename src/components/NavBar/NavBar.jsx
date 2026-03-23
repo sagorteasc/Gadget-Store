@@ -1,17 +1,17 @@
 import { FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ className }) => {
 
     const navList = <>
-        <li><Link to={""}>Home</Link></li>
-        <li><Link to={""}>Statistics</Link></li>
+        <li><Link to={"/"}>Home</Link></li>
+        <li><Link to={"/statistics"}>Statistics</Link></li>
         <li><Link to={""}>Dashboard</Link></li>
     </>
 
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className={`navbar ${className}`}>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
