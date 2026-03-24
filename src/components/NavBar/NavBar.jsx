@@ -6,7 +6,7 @@ const NavBar = ({ className }) => {
     const navList = <>
         <li><Link to={"/"}>Home</Link></li>
         <li><Link to={"/statistics"}>Statistics</Link></li>
-        <li><Link to={""}>Dashboard</Link></li>
+        <li><Link to={"/dashboard"}>Dashboard</Link></li>
     </>
 
     return (

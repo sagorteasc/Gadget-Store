@@ -7,6 +7,13 @@ import {
 } from "react-router-dom";
 import Root from './components/Root/Root';
 import Home from './components/Home/Home';
+import Phones from './components/Phones/Phones';
+import Iphones from './components/Iphones/Iphones';
+import Laptops from './components/Laptops/Laptops';
+import Earbuds from './components/Earbuds/Earbuds';
+import Tablets from './components/Tablets/Tablets';
+import SmartWatches from './components/SmartWatches/SmartWatches';
+import Accessories from './components/Accessories/Accessories';
 
 
 const router = createBrowserRouter([
@@ -17,6 +24,41 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>
+      },
+      {
+        path: "/phones",
+        loader: () => fetch('/gadgets.json'),
+        element: <Phones></Phones>
+      },
+      {
+        path: "/iPhones",
+        loader: () => fetch("/gadgets.json"),
+        element: <Iphones></Iphones>
+      },
+      {
+        path: "/laptops",
+        loader: () => fetch("/gadgets.json"),
+        element: <Laptops></Laptops>
+      },
+      {
+        path: "/earbuds",
+        loader: () => fetch("/gadgets.json"),
+        element: <Earbuds></Earbuds>
+      },
+      {
+        path: "/tablets",
+        loader: () => fetch("/gadgets.json"),
+        element: <Tablets></Tablets>
+      },
+      {
+        path: "/smartWatches",
+        loader: () => fetch("/gadgets.json"),
+        element: <SmartWatches></SmartWatches>
+      },
+      {
+        path: "/accessories",
+        loader: () => fetch("/gadgets.json"),
+        element: <Accessories></Accessories>
       }
     ]
   },

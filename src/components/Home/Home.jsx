@@ -1,26 +1,26 @@
 import { Suspense } from "react";
+import AllProducts from "../AllProducts/AllProducts";
 import Banner from "../Banner/Banner";
-import Gadgets from "../Gadgets/Gadgets";
 
 const Home = () => {
 
-    const gadgetsPromise = fetch('gadgets.json').then(res => res.json())
+    const productsPromise = fetch('/gadgets.json').then(res => res.json())
 
     return (
         <div>
             <Banner></Banner>
 
-            <div className="mt-96 flex justify-center items-center min-h-screen">
-                <Suspense fallback={<Loading />}>
-                    <Gadgets gadgetsPromise={gadgetsPromise}></Gadgets>
+            <div className="max-w-6xl mx-auto w-full mt-96">
+                <Suspense fallback={
+                    <div className="flex justify-center items-center h-40">
+                        <span className="loading loading-dots loading-md"></span>
+                    </div>
+                }>
+                    <AllProducts productsPromise={productsPromise}></AllProducts>
                 </Suspense>
             </div>
         </div>
     );
 };
-
-function Loading() {
-    return <h2>🌀 Loading...</h2>;
-}
 
 export default Home;
