@@ -1,5 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
+import Footer from "../Footer/Footer";
 
 const Root = () => {
 
@@ -8,9 +9,13 @@ const Root = () => {
     return (
         <div>
             <div className="max-w-405 mx-auto mt-8 w-11/12">
-                <NavBar className={location.pathname === "/dashboard" || location.pathname === "/statistics" ? "bg-base-100 rounded-none" : "bg-[#9538E2] rounded-t-4xl"}></NavBar>
+                <NavBar className={location.pathname === "/dashboard" || location.pathname === "/statistics" ? "bg-base-100 rounded-none" : "bg-[#9538E2] rounded-t-4xl"}>
+                </NavBar>
+
                 <Outlet></Outlet>
+
             </div>
+            <Footer></Footer>
         </div>
     );
 };
