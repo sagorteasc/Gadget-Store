@@ -9,7 +9,12 @@ const Root = () => {
     return (
         <div>
             <div className="max-w-405 mx-auto mt-8 w-11/12">
-                <NavBar className={location.pathname === "/dashboard" || location.pathname === "/statistics" ? "bg-base-100 rounded-none" : "bg-[#9538E2] rounded-t-4xl"}>
+                <NavBar className=
+                    {
+                        location.pathname === "/statistics" || location.pathname === "/dashboard" || location.pathname.startsWith("/product/") ?
+                            "bg-base-100 rounded-none text-black"
+                            : "bg-[#9538E2] rounded-t-4xl text-white"
+                    }>
                 </NavBar>
 
                 <Outlet></Outlet>

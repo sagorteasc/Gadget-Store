@@ -121,7 +121,7 @@
     "description": "Premium Android tablet with S Pen.",
     "Specification": ["11-inch display", "Snapdragon 8 Gen 1"],
     "availability": true,
-    "rating": 4.6,
+    "rating": 3.9,
     "quantity": 5
   },
   {
@@ -157,7 +157,7 @@
     "description": "High-capacity portable power bank.",
     "Specification": ["20000mAh", "Fast charging", "Dual USB"],
     "availability": true,
-    "rating": 4.6,
+    "rating": 4.2,
     "quantity": 15
   }
 ]

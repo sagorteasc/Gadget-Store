@@ -14,6 +14,7 @@ import Earbuds from './components/Earbuds/Earbuds';
 import Tablets from './components/Tablets/Tablets';
 import SmartWatches from './components/SmartWatches/SmartWatches';
 import Accessories from './components/Accessories/Accessories';
+import ProductDetails from './components/ProductDetails/ProductDetails';
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>
+      },
+      {
+        path: "/product/:product_id",
+        loader: () => fetch('/gadgets.json'),
+        element: <ProductDetails></ProductDetails>
       },
       {
         path: "/phones",
