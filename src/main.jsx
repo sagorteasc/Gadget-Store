@@ -8,7 +8,7 @@ import {
 import Root from './components/Root/Root';
 import Home from './components/Home/Home';
 import Phones from './components/Phones/Phones';
-import Iphones from './components/Iphones/Iphones';
+import IPhones from './components/Iphones/Iphones';
 import Laptops from './components/Laptops/Laptops';
 import Earbuds from './components/Earbuds/Earbuds';
 import Tablets from './components/Tablets/Tablets';
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       {
         path: "/iPhones",
         loader: () => fetch("/gadgets.json"),
-        element: <Iphones></Iphones>
+        element: <IPhones></IPhones>
       },
       {
         path: "/laptops",

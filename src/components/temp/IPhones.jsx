@@ -2,8 +2,7 @@ import { NavLink, useLoaderData } from "react-router-dom";
 import Banner from "../Banner/Banner";
 import Product from "../Product/Product";
 
-const Iphones = () => {
-
+const IPhones = () => {
     const phonesData = useLoaderData();
     const filterData = phonesData.filter(category => category.category === 'IPhone');
 
@@ -43,4 +42,4 @@ const Iphones = () => {
     );
 };
 
-export default Iphones;
+export default IPhones;
