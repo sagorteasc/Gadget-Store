@@ -15,6 +15,7 @@ import Tablets from './components/Tablets/Tablets';
 import SmartWatches from './components/SmartWatches/SmartWatches';
 import Accessories from './components/Accessories/Accessories';
 import ProductDetails from './components/ProductDetails/ProductDetails';
+import Statistics from './components/Statistics/Statistics';
 
 
 const router = createBrowserRouter([
@@ -65,6 +66,11 @@ const router = createBrowserRouter([
         path: "/accessories",
         loader: () => fetch("/gadgets.json"),
         element: <Accessories></Accessories>
+      },
+      {
+        path: "/statistics",
+        loader: () => fetch("/gadgets.json"),
+        element: <Statistics></Statistics>
       }
     ]
   },
