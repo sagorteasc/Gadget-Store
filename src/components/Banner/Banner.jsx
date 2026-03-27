@@ -1,18 +1,10 @@
-import { useLocation } from 'react-router-dom';
 import bannerImage from '../../assets/banner.jpg'
 
 const Banner = () => {
 
-    const location = useLocation();
-
     return (
         <div>
-            <div className=
-                {
-                    location.pathname !== "/statistics" || location.pathname !== "/dashboard" ?
-                        "bg-[#9538E2] rounded-b-4xl h-full py-12 relative"
-                        : "bg-[#9538E2] rounded-4xl h-full py-12 relative"
-                }>
+            <div className="bg-[#9538E2] rounded-b-4xl h-full py-12 relative">
                 <div className="w-4/6 mx-auto text-center text-white">
                     <h3 className="font-bold text-4xl pb-6 lg:text-5xl">Upgrade Your Tech Accessorize with Gadget Store Accessories</h3>
                     <p>Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>

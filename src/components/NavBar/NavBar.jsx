@@ -1,12 +1,13 @@
 import { FaRegHeart } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "./NavBar.css"
 
 const NavBar = ({ className }) => {
 
     const navList = <>
-        <li><Link to={"/"}>Home</Link></li>
-        <li><Link to={"/statistics"}>Statistics</Link></li>
-        <li><Link to={"/dashboard"}>Dashboard</Link></li>
+        <li><NavLink to={"/"}>Home</NavLink></li>
+        <li><NavLink to={"/dashboard"}>Dashboard</NavLink></li>
+        <li><NavLink to={"/statistics"}>Statistics</NavLink></li>
     </>
 
     return (

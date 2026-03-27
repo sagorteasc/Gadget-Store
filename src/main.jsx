@@ -16,7 +16,7 @@ import SmartWatches from './components/SmartWatches/SmartWatches';
 import Accessories from './components/Accessories/Accessories';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import Statistics from './components/Statistics/Statistics';
-
+import Dashboard from './components/Dashboard/Dashboard';
 
 const router = createBrowserRouter([
   {
@@ -71,7 +71,12 @@ const router = createBrowserRouter([
         path: "/statistics",
         loader: () => fetch("/gadgets.json"),
         element: <Statistics></Statistics>
-      }
+      },
+      {
+        path: "/dashboard",
+        loader: () => fetch("/gadgets.json"),
+        element: <Dashboard></Dashboard>
+      },
     ]
   },
 ]);

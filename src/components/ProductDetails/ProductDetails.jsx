@@ -2,28 +2,33 @@ import { useLoaderData, useParams } from "react-router-dom";
 import { Rating } from 'react-simple-star-rating';
 import { IoCartOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
+import { storeCartDataInLocalStorage } from "../../utilities/addToDb";
 
 const ProductDetails = () => {
 
+    const handleStoreToCart = (id) => {
+        storeCartDataInLocalStorage(id);
+    }
+
     const { product_id } = useParams();
-    const productIdNumber = parseInt(product_id)
+    const productIdNumber = parseInt(product_id);
     const gadgetsData = useLoaderData();
     const gadgetData = gadgetsData.find(gadgetDetail => gadgetDetail.product_id === productIdNumber);
-    const { product_image, product_title, price, availability, description, Specification, rating } = gadgetData;
+    const { product_id: gadget_id, product_image, product_title, price, availability, description, Specification, rating } = gadgetData;
 
     return (
         <div>
             <div className="relative mb-200 md:mb-115">
-                <div className="bg-[#9538E2] max-w-405 mx-auto rounded-3xl">
+                <div className="bg-[#9538E2] max-w-405 mx-auto rounded-b-4xl">
                     <div className="w-9/12 text-center mx-auto pt-5 pb-20 text-white">
                         <h3 className="font-bold text-3xl">Product Details</h3>
                         <p>Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>
                     </div>
                 </div>
                 <div className="max-w-6xl mx-auto w-11/12 absolute top-2/3 left-1/2 -translate-x-1/2">
-                    <div className="card flex flex-col card-side bg-base-100 shadow-sm md:flex-row">
+                    <div className="card grid grid-cols-1 card-side bg-base-100 drop-shadow-2xl md:grid-cols-2">
                         <figure className="md:ml-5 lg:mx-auto">
-                            <img className="w-full rounded-3xl p-5 h-72 lg:h-96" src={product_image} />
+                            <img className="w-full rounded-3xl p-5 h-fit lg:h-96" src={product_image} />
                         </figure>
                         <div className="p-5 space-y-2">
                             <div>
@@ -76,12 +81,15 @@ const ProductDetails = () => {
                             </div>
 
                             <div className="flex items-center gap-3">
-                                <button className="btn bg-[#9538E2] text-white flex items-center rounded-4xl">Add To Card <IoCartOutline /></button>
+                                <button
+                                    onClick={() => handleStoreToCart(gadget_id)}
+                                    className="btn bg-[#9538E2] text-white flex items-center rounded-4xl">Add To Card
+                                    <IoCartOutline />
+                                </button>
                                 <CiHeart className="btn py-3 rounded-full" />
                             </div>
                         </div>
                     </div>
-                    <h3></h3>
                 </div>
             </div>
         </div>
