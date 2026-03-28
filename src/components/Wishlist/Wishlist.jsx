@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { MdDeleteForever } from "react-icons/md";
 
-const Wishlist = ({ gadget, handleRemoveFromWishlist }) => {
+const Wishlist = ({ gadget, handleRemoveFromWishlist, handleAddToCartFromWishlist }) => {
 
     const { product_id, product_image, product_title, description, price } = gadget;
 
@@ -24,6 +24,14 @@ const Wishlist = ({ gadget, handleRemoveFromWishlist }) => {
                     </div>
 
                     <div className="mr-5">
+
+                        <button
+                            onClick={() => handleAddToCartFromWishlist(product_id)}
+                            className="btn rounded-4xl mr-2"
+                        >
+                            Add To Cart
+                        </button>
+
                         <button
                             onClick={() => handleRemoveFromWishlist(product_id)}
                             className="btn rounded-full px-1 py-6">
@@ -38,7 +46,8 @@ const Wishlist = ({ gadget, handleRemoveFromWishlist }) => {
 
 Wishlist.propTypes = {
     gadget: PropTypes.object.isRequired,
-    handleRemoveFromWishlist: PropTypes.func.isRequired
+    handleRemoveFromWishlist: PropTypes.func.isRequired,
+    handleAddToCartFromWishlist: PropTypes.func.isRequired,
 }
 
 export default Wishlist;

@@ -4,7 +4,7 @@ import 'react-tabs/style/react-tabs.css';
 import Cart from "../Cart/Cart";
 import Wishlist from "../Wishlist/Wishlist";
 import { useLoaderData } from "react-router-dom";
-import { getCartDataFromLocalStorage, removeCartDataFromLocalStorage, getWishlistDataFromLocalStorage, removeWishlistDataFromLocalStorage } from "../../utilities/addToDb";
+import { getCartDataFromLocalStorage, removeCartDataFromLocalStorage, getWishlistDataFromLocalStorage, removeWishlistDataFromLocalStorage, addToCartFromWishlist } from "../../utilities/addToDb";
 
 const Dashboard = () => {
 
@@ -35,12 +35,25 @@ const Dashboard = () => {
         setAddToCart(updatedData);
     }
 
-    // updated cart after removing data
+    // updated wishlist after removing data
     const handleRemoveFromWishlist = (id) => {
         removeWishlistDataFromLocalStorage(id);
 
         const updatedData = addToWishlist.filter(gadgetId => gadgetId !== id);
         setAddToWishlist(updatedData);
+    }
+
+    // updated cart after adding data from wishlist
+    const handleAddToCartFromWishlist = (id) => {
+        addToCartFromWishlist(id);
+
+        // remove from the wishlist
+        const updatedData = addToWishlist.filter(gadgetId => gadgetId !== id);
+        setAddToWishlist(updatedData);
+
+        // add to cart
+        const updatedStoreToCart = [...addToCart, id];
+        setAddToCart(updatedStoreToCart);
     }
 
     const handleIsActiveButton = (status) => {
@@ -93,20 +106,33 @@ const Dashboard = () => {
                     <TabPanel>
                         {
                             isActive.status === "Cart" ?
-                                storeCartItem.map(gadget =>
-                                    <Cart
-                                        key={gadget.product_id}
-                                        gadget={gadget}
-                                        handleRemoveFromCart={handleRemoveFromCart}
-                                    >
-                                    </Cart>)
+                                (storeCartItem.length === 0 ?
+                                    <div className="flex justify-center items-center h-40">
+                                        <h3 className="font-bold text-3xl">No Product In The Cart</h3>
+                                    </div>
+
+                                    : storeCartItem.map(gadget =>
+                                        <Cart
+                                            key={gadget.product_id}
+                                            gadget={gadget}
+                                            handleRemoveFromCart={handleRemoveFromCart}
+                                        >
+                                        </Cart>)
+                                )
                                 :
-                                storeWishlistItem.map(gadget =>
-                                    <Wishlist
-                                        key={gadget.product_id}
-                                        gadget={gadget}
-                                        handleRemoveFromWishlist={handleRemoveFromWishlist}
-                                    ></Wishlist>)
+                                (storeWishlistItem.length === 0 ?
+                                    <div className="flex justify-center items-center h-40">
+                                        <h3 className="font-bold text-3xl">No Product In The Wishlist</h3>
+                                    </div>
+
+                                    : storeWishlistItem.map(gadget =>
+                                        <Wishlist
+                                            key={gadget.product_id}
+                                            gadget={gadget}
+                                            handleRemoveFromWishlist={handleRemoveFromWishlist}
+                                            handleAddToCartFromWishlist={handleAddToCartFromWishlist}
+                                        ></Wishlist>)
+                                )
                         }
                     </TabPanel>
                 </Tabs>

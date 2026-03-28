@@ -29,8 +29,9 @@ const storeCartDataInLocalStorage = (id) => {
 const removeCartDataFromLocalStorage = (id) => {
     const cartGadgets = getCartDataFromLocalStorage();
     const remainGadgets = cartGadgets.filter(gadgetId => gadgetId !== id);
-    const updatedGadgets = JSON.stringify(remainGadgets);
-    localStorage.setItem("cart-items", updatedGadgets);
+    const remainGadgetsStr = JSON.stringify(remainGadgets);
+    localStorage.setItem("cart-items", remainGadgetsStr);
+    alert("Item Removed From Cart");
 }
 
 
@@ -68,8 +69,33 @@ const storeWishlistDataInLocalStorage = (id) => {
 const removeWishlistDataFromLocalStorage = (id) => {
     const wishlistGadgets = getWishlistDataFromLocalStorage();
     const remainGadgets = wishlistGadgets.filter(gadgetId => gadgetId !== id);
-    const updatedGadgets = JSON.stringify(remainGadgets);
-    localStorage.setItem("wishlist-items", updatedGadgets);
+    const remainGadgetsStr = JSON.stringify(remainGadgets);
+    localStorage.setItem("wishlist-items", remainGadgetsStr);
+    alert("Item Removed From Wishlist");
 }
 
-export { getCartDataFromLocalStorage, storeCartDataInLocalStorage, removeCartDataFromLocalStorage, getWishlistDataFromLocalStorage, storeWishlistDataInLocalStorage, removeWishlistDataFromLocalStorage }
+// add to cart from the wishlist and remove from wishlist
+const addToCartFromWishlist = (id) => {
+
+    // remove from wishlist
+    const wishlistGadgets = getWishlistDataFromLocalStorage();
+    const remainGadgets = wishlistGadgets.filter(gadgetId => gadgetId !== id);
+    const remainGadgetsStr = JSON.stringify(remainGadgets);
+    localStorage.setItem("wishlist-items", remainGadgetsStr);
+
+    // add to cart
+    const cartGadgets = getCartDataFromLocalStorage();
+
+    if (cartGadgets.includes(id)) {
+        alert("Item Already In The Cart");
+        return;
+    }
+    else {
+        cartGadgets.push(id);
+        const cartGadgetsStr = JSON.stringify(cartGadgets);
+        localStorage.setItem("cart-items", cartGadgetsStr);
+        alert("Item Removed From Wishlist and Added To The Cart");
+    }
+}
+
+export { getCartDataFromLocalStorage, storeCartDataInLocalStorage, removeCartDataFromLocalStorage, getWishlistDataFromLocalStorage, storeWishlistDataInLocalStorage, removeWishlistDataFromLocalStorage, addToCartFromWishlist }
