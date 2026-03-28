@@ -4,7 +4,7 @@ import 'react-tabs/style/react-tabs.css';
 import Cart from "../Cart/Cart";
 import Wishlist from "../Wishlist/Wishlist";
 import { useLoaderData } from "react-router-dom";
-import { getCartDataFromLocalStorage, removeCartDataFromLocalStorage } from "../../utilities/addToDb";
+import { getCartDataFromLocalStorage, removeCartDataFromLocalStorage, getWishlistDataFromLocalStorage, removeWishlistDataFromLocalStorage } from "../../utilities/addToDb";
 
 const Dashboard = () => {
 
@@ -16,24 +16,32 @@ const Dashboard = () => {
     });
 
     const [addToCart, setAddToCart] = useState([]);
+    const [addToWishlist, setAddToWishlist] = useState([]);
 
     useEffect(() => {
         setAddToCart(getCartDataFromLocalStorage());
+        setAddToWishlist(getWishlistDataFromLocalStorage());
     }, []);
 
-    // set the data into the cart
+    // set the data into the cart/wishlist
     const storeCartItem = gadgetsData.filter(gadget => addToCart.includes(gadget.product_id));
+    const storeWishlistItem = gadgetsData.filter(gadget => addToWishlist.includes(gadget.product_id));
 
     // updated cart after removing data
     const handleRemoveFromCart = (id) => {
         removeCartDataFromLocalStorage(id);
 
-        const updatedData = addToCart.filter(gadget => gadget !== id);
+        const updatedData = addToCart.filter(gadgetId => gadgetId !== id);
         setAddToCart(updatedData);
     }
 
+    // updated cart after removing data
+    const handleRemoveFromWishlist = (id) => {
+        removeWishlistDataFromLocalStorage(id);
 
-
+        const updatedData = addToWishlist.filter(gadgetId => gadgetId !== id);
+        setAddToWishlist(updatedData);
+    }
 
     const handleIsActiveButton = (status) => {
         status === 'Cart' ?
@@ -85,12 +93,20 @@ const Dashboard = () => {
                     <TabPanel>
                         {
                             isActive.status === "Cart" ?
-                                storeCartItem.map(gadget => <Cart
-                                    key={gadget.product_id}
-                                    gadget={gadget}
-                                    handleRemoveFromCart={handleRemoveFromCart}
-                                ></Cart>)
-                                : <Wishlist></Wishlist>
+                                storeCartItem.map(gadget =>
+                                    <Cart
+                                        key={gadget.product_id}
+                                        gadget={gadget}
+                                        handleRemoveFromCart={handleRemoveFromCart}
+                                    >
+                                    </Cart>)
+                                :
+                                storeWishlistItem.map(gadget =>
+                                    <Wishlist
+                                        key={gadget.product_id}
+                                        gadget={gadget}
+                                        handleRemoveFromWishlist={handleRemoveFromWishlist}
+                                    ></Wishlist>)
                         }
                     </TabPanel>
                 </Tabs>

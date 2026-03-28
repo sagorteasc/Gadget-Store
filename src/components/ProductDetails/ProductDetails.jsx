@@ -2,12 +2,18 @@ import { useLoaderData, useParams } from "react-router-dom";
 import { Rating } from 'react-simple-star-rating';
 import { IoCartOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
-import { storeCartDataInLocalStorage } from "../../utilities/addToDb";
+import { storeCartDataInLocalStorage, storeWishlistDataInLocalStorage } from "../../utilities/addToDb";
 
 const ProductDetails = () => {
 
+    // add to cart
     const handleStoreToCart = (id) => {
         storeCartDataInLocalStorage(id);
+    }
+
+    // add to wishlist
+    const handleStoreToWishlist = (id) => {
+        storeWishlistDataInLocalStorage(id);
     }
 
     const { product_id } = useParams();
@@ -83,10 +89,17 @@ const ProductDetails = () => {
                             <div className="flex items-center gap-3">
                                 <button
                                     onClick={() => handleStoreToCart(gadget_id)}
-                                    className="btn bg-[#9538E2] text-white flex items-center rounded-4xl">Add To Card
+                                    className="btn bg-[#9538E2] text-white flex items-center rounded-4xl">
+                                    Add To Cart
                                     <IoCartOutline />
                                 </button>
-                                <CiHeart className="btn py-3 rounded-full" />
+
+                                <button
+                                    onClick={() => handleStoreToWishlist(gadget_id)}
+                                    className="btn py-3 rounded-full"
+                                >
+                                    <CiHeart />
+                                </button>
                             </div>
                         </div>
                     </div>
