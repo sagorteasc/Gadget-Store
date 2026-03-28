@@ -17,6 +17,8 @@ const Dashboard = () => {
 
     const [addToCart, setAddToCart] = useState([]);
     const [addToWishlist, setAddToWishlist] = useState([]);
+    const [sort, setSort] = useState('');
+    const [sortByPages, setSortByPages] = useState([]);
 
     useEffect(() => {
         setAddToCart(getCartDataFromLocalStorage());
@@ -56,6 +58,15 @@ const Dashboard = () => {
         setAddToCart(updatedStoreToCart);
     }
 
+    // sort data in cart in descending order according to price
+    const handleSortByPrice = sortType => {
+        setSort(sortType);
+
+        const sortByPages = storeCartItem.sort((a, b) => b.price - a.price);
+        setSortByPages(sortByPages);
+    }
+
+    // hanble state of the button
     const handleIsActiveButton = (status) => {
         status === 'Cart' ?
             setIsActive(
@@ -101,28 +112,52 @@ const Dashboard = () => {
                     </button>
                 </div>
             </div>
+
+            {
+                isActive.status === "Cart" ?
+                    <div className="max-w-6xl mx-auto w-11/12 flex justify-center items-center gap-4 mb-10 md:justify-end">
+                        <h3 className="font-bold text-2xl">Total Cost: </h3>
+                        <button
+                            onClick={handleSortByPrice}
+                            className="btn text-[#9538E2] bg-transparent border-[#8332C5] border text-lg font-semibold rounded-4xl">
+                            Sort by Price
+                        </button>
+
+                        <button className="btn bg-linear-to-br from-[#9538E2] to-[#cf54cb] text-white text-lg font-medium rounded-4xl">Purchase</button>
+                    </div>
+                    : ""
+            }
+
             <div>
                 <Tabs>
                     <TabPanel>
                         {
                             isActive.status === "Cart" ?
                                 (storeCartItem.length === 0 ?
-                                    <div className="flex justify-center items-center h-40">
-                                        <h3 className="font-bold text-3xl">No Product In The Cart</h3>
+                                    <div className="bg-slate-200 p-10 rounded-md flex justify-center items-center h-40">
+                                        <h3 className="font-bold text-center text-3xl">No Product In The Cart</h3>
                                     </div>
 
-                                    : storeCartItem.map(gadget =>
-                                        <Cart
-                                            key={gadget.product_id}
-                                            gadget={gadget}
-                                            handleRemoveFromCart={handleRemoveFromCart}
-                                        >
-                                        </Cart>)
+                                    : sort ?
+                                        sortByPages.map(gadget =>
+                                            <Cart
+                                                key={gadget.product_id}
+                                                gadget={gadget}
+                                                handleRemoveFromCart={handleRemoveFromCart}
+                                            >
+                                            </Cart>)
+                                        : storeCartItem.map(gadget =>
+                                            <Cart
+                                                key={gadget.product_id}
+                                                gadget={gadget}
+                                                handleRemoveFromCart={handleRemoveFromCart}
+                                            >
+                                            </Cart>)
                                 )
                                 :
                                 (storeWishlistItem.length === 0 ?
-                                    <div className="flex justify-center items-center h-40">
-                                        <h3 className="font-bold text-3xl">No Product In The Wishlist</h3>
+                                    <div className="bg-slate-200 p-10 rounded-md flex justify-center items-center h-40">
+                                        <h3 className="font-bold text-center text-3xl">No Product In The Wishlist</h3>
                                     </div>
 
                                     : storeWishlistItem.map(gadget =>
