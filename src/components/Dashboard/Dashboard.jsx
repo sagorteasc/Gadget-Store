@@ -8,7 +8,6 @@ import { getCartDataFromLocalStorage, removeCartDataFromLocalStorage, getWishlis
 
 const Dashboard = () => {
 
-
     const gadgetsData = useLoaderData();
 
     const [isActive, setIsActive] = useState({
@@ -26,8 +25,12 @@ const Dashboard = () => {
     }, []);
 
     // set the data into the cart/wishlist
-    const storeCartItem = gadgetsData.filter(gadget => addToCart.includes(gadget.product_id));
-    const storeWishlistItem = gadgetsData.filter(gadget => addToWishlist.includes(gadget.product_id));
+    const storeCartItems = gadgetsData.filter(gadget => addToCart.includes(gadget.product_id));
+    const storeWishlistItems = gadgetsData.filter(gadget => addToWishlist.includes(gadget.product_id));
+
+    // total price of the items in the cart
+    const initialValue = 0;
+    const totalCartPrice = storeCartItems.reduce((acc, current) => acc + parseInt(current.price), initialValue);
 
     // updated cart after removing data
     const handleRemoveFromCart = (id) => {
@@ -59,10 +62,10 @@ const Dashboard = () => {
     }
 
     // sort data in cart in descending order according to price
-    const handleSortByPrice = sortType => {
+    const handleSortByPrice = (sortType) => {
         setSort(sortType);
 
-        const sortByPages = storeCartItem.sort((a, b) => b.price - a.price);
+        const sortByPages = storeCartItems.sort((a, b) => b.price - a.price);
         setSortByPages(sortByPages);
     }
 
@@ -116,7 +119,7 @@ const Dashboard = () => {
             {
                 isActive.status === "Cart" ?
                     <div className="max-w-6xl mx-auto w-11/12 flex justify-center items-center gap-4 mb-10 md:justify-end">
-                        <h3 className="font-bold text-2xl">Total Cost: </h3>
+                        <h3 className="font-bold text-2xl">Total Cost: ${totalCartPrice}</h3>
                         <button
                             onClick={handleSortByPrice}
                             className="btn text-[#9538E2] bg-transparent border-[#8332C5] border text-lg font-semibold rounded-4xl">
@@ -133,7 +136,7 @@ const Dashboard = () => {
                     <TabPanel>
                         {
                             isActive.status === "Cart" ?
-                                (storeCartItem.length === 0 ?
+                                (storeCartItems.length === 0 ?
                                     <div className="bg-slate-200 p-10 rounded-md flex justify-center items-center h-40">
                                         <h3 className="font-bold text-center text-3xl">No Product In The Cart</h3>
                                     </div>
@@ -146,7 +149,7 @@ const Dashboard = () => {
                                                 handleRemoveFromCart={handleRemoveFromCart}
                                             >
                                             </Cart>)
-                                        : storeCartItem.map(gadget =>
+                                        : storeCartItems.map(gadget =>
                                             <Cart
                                                 key={gadget.product_id}
                                                 gadget={gadget}
@@ -155,12 +158,12 @@ const Dashboard = () => {
                                             </Cart>)
                                 )
                                 :
-                                (storeWishlistItem.length === 0 ?
+                                (storeWishlistItems.length === 0 ?
                                     <div className="bg-slate-200 p-10 rounded-md flex justify-center items-center h-40">
                                         <h3 className="font-bold text-center text-3xl">No Product In The Wishlist</h3>
                                     </div>
 
-                                    : storeWishlistItem.map(gadget =>
+                                    : storeWishlistItems.map(gadget =>
                                         <Wishlist
                                             key={gadget.product_id}
                                             gadget={gadget}
