@@ -4,7 +4,7 @@ const Banner = () => {
 
     return (
         <div>
-            <div className="bg-[#9538E2] rounded-b-4xl h-full py-12 relative">
+            <div className="bg-[#9538E2] rounded-b-4xl h-full pt-8 pb-12 relative">
                 <div className="w-4/6 mx-auto text-center text-white">
                     <h3 className="font-bold text-4xl pb-6 lg:text-5xl">Upgrade Your Tech Accessorize with Gadget Store Accessories</h3>
                     <p>Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>

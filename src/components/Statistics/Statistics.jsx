@@ -15,7 +15,7 @@ const Statistics = () => {
     return (
         <div>
             <div className="bg-[#9538E2] max-w-405 mx-auto rounded-b-4xl mb-10">
-                <div className="w-9/12 text-center mx-auto p-10 text-white">
+                <div className="w-9/12 text-center mx-auto pt-5 pb-10 py-10 text-white">
                     <h3 className="font-bold text-3xl pb-2">Statistics</h3>
                     <p>Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>
                 </div>

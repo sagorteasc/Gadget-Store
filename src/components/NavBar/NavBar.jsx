@@ -2,7 +2,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import "./NavBar.css"
 
-const NavBar = ({ className }) => {
+const NavBar = () => {
 
     const navList = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
@@ -12,7 +12,7 @@ const NavBar = ({ className }) => {
 
     return (
         <div>
-            <div className={`navbar ${className}`}>
+            <nav className="navbar bg-[#9538E2] rounded-t-4xl text-white">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -42,7 +42,7 @@ const NavBar = ({ className }) => {
                         <FaRegHeart />
                     </button>
                 </div>
-            </div>
+            </nav>
         </div>
     );
 };
