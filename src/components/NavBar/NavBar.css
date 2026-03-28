@@ -1,3 +1,11 @@
-nav a.active {
-  text-decoration: underline;
+a.active {
+  background-color: white;
+  color: black;
+}
+
+@media screen and (max-width: 768px) and (min-width: 480px) {
+  a.active {
+    background-color: black;
+    color: white;
+  }
 }

@@ -34,6 +34,10 @@ const removeCartDataFromLocalStorage = (id) => {
     alert("Item Removed From Cart");
 }
 
+// remove all cart items from local storage
+const removeAllCartDataFromLocalStorage = () => {
+    localStorage.removeItem("cart-items");
+}
 
 // Wishlist
 
@@ -98,4 +102,4 @@ const addToCartFromWishlist = (id) => {
     }
 }
 
-export { getCartDataFromLocalStorage, storeCartDataInLocalStorage, removeCartDataFromLocalStorage, getWishlistDataFromLocalStorage, storeWishlistDataInLocalStorage, removeWishlistDataFromLocalStorage, addToCartFromWishlist }
+export { getCartDataFromLocalStorage, storeCartDataInLocalStorage, removeCartDataFromLocalStorage, getWishlistDataFromLocalStorage, storeWishlistDataInLocalStorage, removeWishlistDataFromLocalStorage, addToCartFromWishlist, removeAllCartDataFromLocalStorage }

@@ -3,8 +3,9 @@ import { Tabs, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Cart from "../Cart/Cart";
 import Wishlist from "../Wishlist/Wishlist";
-import { useLoaderData } from "react-router-dom";
-import { getCartDataFromLocalStorage, removeCartDataFromLocalStorage, getWishlistDataFromLocalStorage, removeWishlistDataFromLocalStorage, addToCartFromWishlist } from "../../utilities/addToDb";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import { getCartDataFromLocalStorage, removeCartDataFromLocalStorage, getWishlistDataFromLocalStorage, removeWishlistDataFromLocalStorage, addToCartFromWishlist, removeAllCartDataFromLocalStorage } from "../../utilities/addToDb";
+import paymentImg from "../../assets/Group.png"
 
 const Dashboard = () => {
 
@@ -31,6 +32,14 @@ const Dashboard = () => {
     // total price of the items in the cart
     const initialValue = 0;
     const totalCartPrice = storeCartItems.reduce((acc, current) => acc + parseInt(current.price), initialValue);
+
+    // payment
+    const navigate = useNavigate();
+    const handlePayment = () => {
+        setAddToCart(removeAllCartDataFromLocalStorage());
+
+        navigate("/");
+    }
 
     // updated cart after removing data
     const handleRemoveFromCart = (id) => {
@@ -116,17 +125,52 @@ const Dashboard = () => {
                 </div>
             </div>
 
+            {/* modal */}
+            <dialog id="purchase" className="modal modal-bottom sm:modal-middle">
+                <div className="w-fit mx-auto my-auto bg-white p-8 rounded-2xl text-center">
+                    <img className="flex justify-center items-center mx-auto mb-4" src={paymentImg} alt="" />
+                    <h3 className="font-bold text-2xl mb-3">Payment Successfully</h3>
+                    <p className="font-medium opacity-60">Thanks for Purchasing</p>
+                    <p className="font-medium opacity-60 mb-4">Total: ${totalCartPrice}</p>
+                    <div className="">
+                        <form method="dialog">
+                            <button
+                                onClick={handlePayment}
+                                className="btn bg-[#11000010] rounded-4xl w-full">
+                                Close
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+
+
             {
                 isActive.status === "Cart" ?
                     <div className="max-w-6xl mx-auto w-11/12 flex justify-center items-center gap-4 mb-10 md:justify-end">
-                        <h3 className="font-bold text-2xl">Total Cost: ${totalCartPrice}</h3>
+                        <h3 className="font-bold text-xl whitespace-nowrap md:text-2xl">Total Cost: ${totalCartPrice}</h3>
                         <button
                             onClick={handleSortByPrice}
-                            className="btn text-[#9538E2] bg-transparent border-[#8332C5] border text-lg font-semibold rounded-4xl">
+                            className=
+                            {
+                                totalCartPrice ?
+                                    "btn text-[#9538E2] bg-transparent border-[#8332C5] border text-lg font-semibold rounded-4xl"
+                                    : "btn btn-disabled text-[#9538E2] bg-transparent border-[#8332C5] border text-lg font-semibold rounded-4xl"
+                            }>
                             Sort by Price
                         </button>
 
-                        <button className="btn bg-linear-to-br from-[#9538E2] to-[#cf54cb] text-white text-lg font-medium rounded-4xl">Purchase</button>
+                        {
+                            <button
+                                onClick={() => document.getElementById('purchase').showModal()}
+                                className=
+                                {totalCartPrice ?
+                                    "btn bg-linear-to-br from-[#9538E2] to-[#cf54cb] text-white text-lg font-medium rounded-4xl"
+                                    : "btn btn-disabled bg-linear-to-br from-[#9538E2] to-[#cf54cb] text-white text-lg font-medium rounded-4xl"
+                                }>
+                                Purchase
+                            </button>
+                        }
                     </div>
                     : ""
             }
