@@ -1,16 +1,46 @@
-# React + Vite
+# 🛒 Gadget Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive e-commerce web application where users can browse gadgets, add them to cart, and simulate purchases with a clean UI and smooth user experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌐 Live Demo
 
-## React Compiler
+🚀 **Live Site:** https://sagorteasc-gadget-store.vercel.app/  
+📂 **GitHub Repo:** https://github.com/sagorteasc/Gadget-Store
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ✨ Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🛍️ **Product Browsing** — Explore a variety of gadgets with clean UI
+- 🛒 **Cart Management** — Add/remove items easily
+- 🚫 **Duplicate Prevention** — Smart validation for cart items
+- 💰 **Dynamic Pricing** — Real-time total price calculation
+- 💳 **Checkout Simulation** — Purchase with success modal
+- 🧹 **Auto Cart Reset** — Clears cart after successful purchase
+- 🔔 **Toast Notifications** — Instant feedback for user actions
+- 💾 **Local Storage Support** — Cart persists across reloads
+- 📱 **Fully Responsive** — Works on mobile, tablet, and desktop
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+- ⚛️ React.js
+- 🌐 React Router
+- 🎨 Tailwind CSS
+
+### State & Logic
+
+- React Hooks (useState, useEffect)
+- Local Storage API
+
+### UI Enhancements
+
+- React Toastify
+- Modal Components
+
+---
