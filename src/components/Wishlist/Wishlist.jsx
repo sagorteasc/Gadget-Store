@@ -9,7 +9,7 @@ const Wishlist = ({ gadget, handleRemoveFromWishlist, handleAddToCartFromWishlis
         <div>
             <div className="max-w-6xl mx-auto w-11/12">
                 <div className="card card-side bg-base-100 drop-shadow-2xl mb-5 flex flex-col items-center justify-between lg:flex-row">
-                    <div className="grid md:grid-cols-[200px_1fr]">
+                    <div className="grid w-full md:grid-cols-[200px_1fr]">
                         <figure className="lg:mx-auto">
                             <img className="w-full object-contain h-40 rounded-3xl p-5" src={product_image} />
                         </figure>

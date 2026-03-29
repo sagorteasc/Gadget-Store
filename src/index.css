@@ -8,3 +8,8 @@ body {
     font-family: "Sora", sans-serif;
   }
 }
+
+.Toastify__toast {
+  width: 320px;
+  max-width: 90vw;
+}

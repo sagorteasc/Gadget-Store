@@ -15,14 +15,14 @@ const Phones = () => {
                 <div>
                     <div className="grid grid-cols-1 gap-2 w-full lg:grid-cols-[0.15fr_1fr]">
                         <div className="flex flex-col gap-2">
-                            <button className="btn bg-white text-black"><NavLink to={"/"}>All</NavLink></button>
-                            <button className="btn btn-primary"><NavLink to={"/phones"}>Phones</NavLink></button>
-                            <button className="btn bg-white text-black"><NavLink to={"/iPhones"}>Iphones</NavLink></button>
-                            <button className="btn bg-white text-black"><NavLink to={"/laptops"}>Laptops</NavLink></button>
-                            <button className="btn bg-white text-black"><NavLink to={"/earbuds"}>Earbuds</NavLink></button>
-                            <button className="btn bg-white text-black"><NavLink to={"/tablets"}>Tablets</NavLink></button>
-                            <button className="btn bg-white text-black"><NavLink to={"/smartWatches"}>Smart Watches</NavLink></button>
-                            <button className="btn bg-white text-black"><NavLink to={"/accessories"}>Accessories</NavLink></button>
+                            <NavLink className={({ isActive }) => isActive ? "btn btn-primary" : "btn"} to={"/"}>All</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "btn btn-primary" : "btn"} to={"/phones"}>Phones</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "btn btn-primary" : "btn"} to={"/iPhones"}>Iphones</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "btn btn-primary" : "btn"} to={"/laptops"}>Laptops</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "btn btn-primary" : "btn"} to={"/earbuds"}>Earbuds</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "btn btn-primary" : "btn"} to={"/tablets"}>Tablets</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "btn btn-primary" : "btn"} to={"/smartWatches"}>Smart Watches</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "btn btn-primary" : "btn"} to={"/accessories"}>Accessories</NavLink>
                         </div>
                         <div className="grid grid-cols-1 gap-5 mb-16 md:grid-cols-2 lg:grid-cols-3">
                             {

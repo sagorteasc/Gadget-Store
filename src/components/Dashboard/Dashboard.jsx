@@ -147,7 +147,7 @@ const Dashboard = () => {
 
             {
                 isActive.status === "Cart" ?
-                    <div className="max-w-6xl mx-auto w-11/12 flex justify-center items-center gap-4 mb-10 md:justify-end">
+                    <div className="max-w-6xl mx-auto w-11/12 flex justify-center items-center gap-4 mb-10 flex-wrap md:justify-end">
                         <h3 className="font-bold text-xl whitespace-nowrap md:text-2xl">Total Cost: ${totalCartPrice}</h3>
                         <button
                             onClick={handleSortByPrice}

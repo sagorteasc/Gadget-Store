@@ -1,7 +1,8 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { Rating } from 'react-simple-star-rating';
 import { IoCartOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
+import { IoHome } from "react-icons/io5";
 import { storeCartDataInLocalStorage, storeWishlistDataInLocalStorage } from "../../utilities/addToDb";
 
 const ProductDetails = () => {
@@ -16,6 +17,12 @@ const ProductDetails = () => {
         storeWishlistDataInLocalStorage(id);
     }
 
+    // back to home
+    const navigate = useNavigate();
+    const handleBackToHome = () => {
+        navigate("/");
+    }
+
     const { product_id } = useParams();
     const productIdNumber = parseInt(product_id);
     const gadgetsData = useLoaderData();
@@ -24,7 +31,7 @@ const ProductDetails = () => {
 
     return (
         <div>
-            <div className="relative mb-200 md:mb-115">
+            <div className="relative pb-5 mb-190 md:mb-115">
                 <div className="bg-[#9538E2] max-w-405 mx-auto rounded-b-4xl">
                     <div className="w-9/12 text-center mx-auto pt-5 pb-20 text-white">
                         <h3 className="font-bold text-3xl">Product Details</h3>
@@ -32,7 +39,7 @@ const ProductDetails = () => {
                     </div>
                 </div>
                 <div className="max-w-6xl mx-auto w-11/12 absolute top-2/3 left-1/2 -translate-x-1/2">
-                    <div className="card grid grid-cols-1 card-side bg-base-100 drop-shadow-2xl md:grid-cols-2">
+                    <div className="card h-200 grid grid-cols-1 card-side bg-base-100 drop-shadow-2xl md:grid-cols-2">
                         <figure className="md:ml-5 lg:mx-auto">
                             <img className="w-full rounded-3xl p-5 h-fit lg:h-96" src={product_image} />
                         </figure>
@@ -86,21 +93,54 @@ const ProductDetails = () => {
                                 <button className="bg-[#09080F25] font-medium text-sm opacity-80 px-3 py-1 rounded-4xl">{rating}</button>
                             </div>
 
-                            <div className="flex items-center gap-3">
-                                <button
-                                    onClick={() => handleStoreToCart(gadget_id)}
-                                    className="btn bg-[#9538E2] text-white flex items-center rounded-4xl">
-                                    Add To Cart
-                                    <IoCartOutline />
-                                </button>
+                            {
+                                availability ?
+                                    <div className="flex items-center gap-3">
+                                        <button
+                                            onClick={() => handleStoreToCart(gadget_id)}
+                                            className="btn bg-[#9538E2] text-white flex items-center rounded-4xl">
+                                            Add To Cart
+                                            <IoCartOutline />
+                                        </button>
 
-                                <button
-                                    onClick={() => handleStoreToWishlist(gadget_id)}
-                                    className="btn py-3 rounded-full"
-                                >
-                                    <CiHeart />
-                                </button>
-                            </div>
+                                        <button
+                                            onClick={() => handleStoreToWishlist(gadget_id)}
+                                            className="btn py-3 rounded-full"
+                                        >
+                                            <CiHeart />
+                                        </button>
+
+                                        <button
+                                            onClick={handleBackToHome}
+                                            className="btn py-3 rounded-full"
+                                        >
+                                            <IoHome />
+                                        </button>
+                                    </div>
+                                    : <div className="flex items-center gap-3">
+                                        <button
+                                            onClick={() => handleStoreToCart(gadget_id)}
+                                            className="btn btn-disabled bg-[#9538E2] text-white flex items-center rounded-4xl">
+                                            Add To Cart
+                                            <IoCartOutline />
+                                        </button>
+
+                                        <button
+                                            onClick={() => handleStoreToWishlist(gadget_id)}
+                                            className="btn btn-disabled py-3 rounded-full"
+                                        >
+                                            <CiHeart />
+                                        </button>
+
+                                        <button
+                                            onClick={handleBackToHome}
+                                            className="btn py-3 rounded-full"
+                                        >
+                                            <IoHome />
+                                        </button>
+                                    </div>
+                            }
+
                         </div>
                     </div>
                 </div>
