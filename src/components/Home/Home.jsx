@@ -10,7 +10,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
 
-            <div className="max-w-6xl mx-auto w-full mt-96">
+            <div className="max-w-6xl mx-auto w-full mt-10 md:mt-96">
                 <Suspense fallback={
                     <div className="flex justify-center items-center h-40">
                         <span className="loading loading-dots loading-md"></span>

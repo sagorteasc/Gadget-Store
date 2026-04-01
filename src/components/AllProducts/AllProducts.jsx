@@ -10,8 +10,8 @@ const AllProducts = ({ productsPromise }) => {
     return (
         <div>
             <h3 className="font-bold text-4xl text-center mb-10">Explore Cutting-Edge Gadgets</h3>
-            <div className="grid grid-cols-1 gap-2 w-full lg:grid-cols-[0.15fr_1fr]">
-                <div className="flex flex-col gap-2">
+            <div className="grid gap-3 w-full lg:grid-cols-[0.15fr_1fr]">
+                <div className="flex flex-wrap justify-center mx-auto gap-2 lg:mx-0 lg:flex-col lg:justify-normal">
                     <NavLink className={({ isActive }) => isActive ? "btn btn-primary" : "btn"} to={"/"}>All</NavLink>
                     <NavLink className={({ isActive }) => isActive ? "btn btn-primary" : "btn"} to={"/phones"}>Phones</NavLink>
                     <NavLink className={({ isActive }) => isActive ? "btn btn-primary" : "btn"} to={"/iPhones"}>Iphones</NavLink>

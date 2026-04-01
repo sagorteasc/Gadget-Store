@@ -31,7 +31,7 @@ const ProductDetails = () => {
 
     return (
         <div>
-            <div className="relative pb-5 mb-190 md:mb-115">
+            <div className="relative pb-5 mb-180 md:mb-110">
                 <div className="bg-[#9538E2] max-w-405 mx-auto rounded-b-4xl">
                     <div className="w-9/12 text-center mx-auto pt-5 pb-20 text-white">
                         <h3 className="font-bold text-3xl">Product Details</h3>
@@ -39,11 +39,11 @@ const ProductDetails = () => {
                     </div>
                 </div>
                 <div className="max-w-6xl mx-auto w-11/12 absolute top-2/3 left-1/2 -translate-x-1/2">
-                    <div className="card h-200 grid grid-cols-1 card-side bg-base-100 drop-shadow-2xl md:grid-cols-2">
+                    <div className="card h-195 grid grid-cols-1 card-side bg-base-100 drop-shadow-2xl md:grid-cols-2 md:h-120">
                         <figure className="md:ml-5 lg:mx-auto">
-                            <img className="w-full rounded-3xl p-5 h-fit lg:h-96" src={product_image} />
+                            <img className="w-full rounded-3xl p-5 object-contain h-70 md:h-100 lg:h-96" src={product_image} />
                         </figure>
-                        <div className="p-5 space-y-2">
+                        <div className="flex flex-col justify-center p-5 space-y-2 md:px-5">
                             <div>
                                 <h2 className="font-semibold text-[28px]">{product_title}</h2>
                                 <p className="font-semibold text-xl opacity-80 mb-2">Price: ${price}</p>
