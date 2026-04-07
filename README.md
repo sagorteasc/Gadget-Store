@@ -44,3 +44,38 @@ A modern and responsive e-commerce web application where users can browse gadget
 - Modal Components
 
 ---
+
+# 🚀 Run This Project Locally
+
+Follow these steps to run the project on your local machine:
+
+## 1. Clone the Repository
+
+git clone https://github.com/sagorteasc/Gadget-Store.git
+
+## 2. Navigate to Project Folder
+
+cd Gadget-Store
+
+## 3. Install Dependencies
+
+npm install
+
+## 4. Run the Development Server
+
+npm run dev
+
+## 5. Open in Browser
+
+http://localhost:3000
+
+---
+
+## 📝 Notes
+
+- Make sure you have Node.js installed
+- If using yarn, replace npm with yarn
+
+---
+
+✅ Your project should now be running locally!

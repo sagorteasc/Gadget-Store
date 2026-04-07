@@ -18,7 +18,7 @@ const Dashboard = () => {
     const [addToCart, setAddToCart] = useState([]);
     const [addToWishlist, setAddToWishlist] = useState([]);
     const [sort, setSort] = useState('');
-    const [sortByPages, setSortByPages] = useState([]);
+    const [sortByPrice, setsortByPrice] = useState([]);
 
     useEffect(() => {
         setAddToCart(getCartDataFromLocalStorage());
@@ -74,8 +74,8 @@ const Dashboard = () => {
     const handleSortByPrice = (sortType) => {
         setSort(sortType);
 
-        const sortByPages = storeCartItems.sort((a, b) => b.price - a.price);
-        setSortByPages(sortByPages);
+        const sortByPrice = storeCartItems.sort((a, b) => b.price - a.price);
+        setsortByPrice(sortByPrice);
     }
 
     // hanble state of the button
@@ -186,7 +186,7 @@ const Dashboard = () => {
                                     </div>
 
                                     : sort ?
-                                        sortByPages.map(gadget =>
+                                        sortByPrice.map(gadget =>
                                             <Cart
                                                 key={gadget.product_id}
                                                 gadget={gadget}
